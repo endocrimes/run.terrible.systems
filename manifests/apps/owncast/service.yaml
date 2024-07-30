@@ -100,7 +100,7 @@ spec:
         kubernetes.io/os: linux
       restartPolicy: Always
       securityContext:
-        runAsNonRoot: true
+        # runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       terminationGracePeriodSeconds: 30
