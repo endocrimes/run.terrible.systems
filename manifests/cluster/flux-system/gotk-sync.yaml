@@ -37,7 +37,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./manifests/flux-system
+  path: ./manifests/cluster
   prune: true
   sourceRef:
     kind: GitRepository
