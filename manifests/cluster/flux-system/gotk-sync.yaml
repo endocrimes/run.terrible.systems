@@ -80,7 +80,7 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: spin-operator
+      name: spin-operator-controller-manager
       namespace: spinkube
   dependsOn:
     - name: ingress
