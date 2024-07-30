@@ -6,9 +6,7 @@
   "flux": {
     "fileMatch": ["manifests/.+\\.yaml$"]
   },
-  {
-    "nix": {
-      "enabled": true
-    }
+  "nix": {
+    "enabled": true
   }
 }
