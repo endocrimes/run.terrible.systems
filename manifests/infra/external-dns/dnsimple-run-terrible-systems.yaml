@@ -35,6 +35,6 @@ spec:
             name: dnsimple-token
             key: token
       - name: DNSIMPLE_ACCOUNT_ID
-        value: "hormonalparty"
+        value: "106272"
       - name: DNSIMPLE_ZONES
         value: "terrible.systems"
