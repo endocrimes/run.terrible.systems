@@ -1,0 +1,18 @@
+creation_rules:
+  - path_regex: manifests/*.yaml
+    encrypted_regex: ^(data|stringData)$
+    pgp: >-
+      06D3DBFB5FB5468467BA56529035F3A43D5001EA,
+      11C53C196E0848476A6BC5918D65584EF3DDF91B
+
+  - path_regex: talos/talosconfig
+    encrypted_regex: ^key$
+    pgp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+
+  - path_regex: talos/kubeconfig
+    encrypted_regex: ^client-key-data$
+    pgp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+
+  - path_regex: talos/secrets.yaml
+    encrypted_regex: ^(secret|bootstraptoken|secretboxencryptionsecret|token|key)$
+    pgp: 11C53C196E0848476A6BC5918D65584EF3DDF91B

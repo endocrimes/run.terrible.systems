@@ -1,0 +1,10 @@
+machine:
+  install:
+    disk: none
+    diskSelector:
+      uuid: "00000000-0000-0000-8ce3-8ee20dc26001"
+  network:
+    hostname: bray
+    interfaces:
+    - interface: eth0
+      dhcp: true
