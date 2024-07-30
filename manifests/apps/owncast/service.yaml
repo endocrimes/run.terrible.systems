@@ -34,7 +34,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-production
     external-dns.alpha.kubernetes.io/hostname: live.run.terrible.systems
   name: owncast
-  namespace: default
+  namespace: owncast
 spec:
   ingressClassName: nginx
   rules:
