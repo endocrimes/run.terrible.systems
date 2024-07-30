@@ -63,7 +63,7 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: issuer
+    - name: ingress
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -78,4 +78,4 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: issuer
+    - name: ingress
