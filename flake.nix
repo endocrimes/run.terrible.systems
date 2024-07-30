@@ -14,6 +14,7 @@
           fluxcd
           kubectl
           sops
+          talosctl
         ];
       };
     });

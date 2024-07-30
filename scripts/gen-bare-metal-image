@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+TALOS_VERSION="v1.7.5"
+ID=$(curl --silent -X POST --data-binary @talos/bare-metal-image.yaml https://factory.talos.dev/schematics | jq -r .id)
+
+echo "installer-image: factory.talos.dev/installer/$ID:$TALOS_VERSION"
