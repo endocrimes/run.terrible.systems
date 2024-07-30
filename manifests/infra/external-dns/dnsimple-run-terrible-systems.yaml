@@ -33,7 +33,7 @@ spec:
         valueFrom:
           secretKeyRef:
             name: dnsimple-token
-            value: token
+            key: token
       - name: DNSIMPLE_ACCOUNT_ID
         value: "hormonalparty"
       - name: DNSIMPLE_ZONES
