@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: owncast-http
+  namespace: owncast
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: web
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: owncast-rtmp
+  namespace: owncast
+spec:
+  ports:
+  - port: 1935
+    protocol: TCP
+    targetPort: rtmp
+  selector:
+    app: web
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    external-dns.alpha.kubernetes.io/hostname: live.run.terrible.systems
+  name: owncast
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: live.run.terrible.systems
+    http:
+      paths:
+      - backend:
+          service:
+            name: owncast
+            port:
+              name: http
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - live.run.terrible.systems
+    secretName: live-tls-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: owncast
+  namespace: owncast
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: owncast
+  template:
+    metadata:
+      labels:
+        app: web
+        app.kubernetes.io/name: owncast
+    spec:
+      containers:
+      - image: docker.io/owncast/owncast:latest
+        imagePullPolicy: Always
+        name: owncast
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 1935
+          name: rtmp
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - mountPath: /app/data
+            name: data
+      volumes:
+        - name: data
+          # todo: setup rook
+          emptyDir:
+      enableServiceLinks: false
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      terminationGracePeriodSeconds: 30
