@@ -43,7 +43,7 @@ spec:
       paths:
       - backend:
           service:
-            name: owncast
+            name: owncast-http
             port:
               name: http
         path: /
