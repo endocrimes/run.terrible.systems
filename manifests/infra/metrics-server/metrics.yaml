@@ -24,5 +24,3 @@ spec:
         namespace: kube-system
       interval: 1m
   values:
-    args:
-      - --kubelet-preferred-address-types=Hostname,InternalDNS,InternalIP,ExternalDNS,ExternalIP
