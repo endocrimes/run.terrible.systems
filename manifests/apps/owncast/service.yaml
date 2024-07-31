@@ -102,9 +102,9 @@ spec:
           readOnlyRootFilesystem: true
         volumeMounts:
           - mountPath: /app/data
-            name: data
+            name: appdata
       volumes:
-        - name: data
+        - name: appdata
           persistentVolumeClaim:
             claimName: owncast
       enableServiceLinks: false
