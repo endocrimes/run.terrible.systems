@@ -1,118 +1,620 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: owncast-http
-  namespace: owncast
+    name: owncast-http
+    namespace: owncast
 spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: http
-  selector:
-    app: web
-  sessionAffinity: None
-  type: ClusterIP
+    ports:
+        - port: 80
+          protocol: TCP
+          targetPort: http
+    selector:
+        app: web
+    sessionAffinity: None
+    type: ClusterIP
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: owncast-rtmp
-  namespace: owncast
+    name: oauth2-proxy
+    namespace: owncast
 spec:
-  ports:
-  - port: 1935
-    protocol: TCP
-    targetPort: rtmp
-  selector:
-    app: web
-  type: NodePort
+    ports:
+        - port: 80
+          protocol: TCP
+          targetPort: http
+    selector:
+        app: oauth2-proxy
+    sessionAffinity: None
+    type: ClusterIP
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: owncast-rtmp
+    namespace: owncast
+spec:
+    ports:
+        - port: 1935
+          protocol: TCP
+          targetPort: rtmp
+    selector:
+        app: web
+    type: NodePort
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
-    external-dns.alpha.kubernetes.io/hostname: live.run.terrible.systems
-  name: owncast
-  namespace: owncast
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        external-dns.alpha.kubernetes.io/hostname: live.run.terrible.systems
+    name: oauth2-proxy
+    namespace: owncast
 spec:
-  ingressClassName: nginx
-  rules:
-  - host: live.run.terrible.systems
-    http:
-      paths:
-      - backend:
-          service:
-            name: owncast-http
-            port:
-              name: http
-        path: /
-        pathType: Prefix
-  tls:
-  - hosts:
-    - live.run.terrible.systems
-    secretName: live-tls-secret
+    ingressClassName: nginx
+    rules:
+        - host: live.run.terrible.systems
+          http:
+            paths:
+                - path: /oauth2
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: oauth2-proxy
+                        port:
+                            number: 4180
+    tls:
+        - hosts:
+            - live.run.terrible.systems
+          secretName: live-tls-secret
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        external-dns.alpha.kubernetes.io/hostname: live.run.terrible.systems
+        nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
+        nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+    name: owncast
+    namespace: owncast
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: live.run.terrible.systems
+          http:
+            paths:
+                - backend:
+                    service:
+                        name: owncast-http
+                        port:
+                            name: http
+                  path: /
+                  pathType: Prefix
+    tls:
+        - hosts:
+            - live.run.terrible.systems
+          secretName: live-tls-secret
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: owncast
-  namespace: owncast
+    name: owncast
+    namespace: owncast
 spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 20Gi
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: web
-  name: owncast
-  namespace: owncast
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: owncast
-  template:
-    metadata:
-      labels:
+    labels:
         app: web
-        app.kubernetes.io/name: owncast
-    spec:
-      containers:
-      - image: docker.io/owncast/owncast:latest
-        imagePullPolicy: Always
-        name: owncast
-        ports:
-        - containerPort: 8080
-          name: http
-          protocol: TCP
-        - containerPort: 1935
-          name: rtmp
-          protocol: TCP
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          readOnlyRootFilesystem: true
-        volumeMounts:
-          - mountPath: /app/data
-            name: appdata
-      volumes:
-        - name: appdata
-          persistentVolumeClaim:
-            claimName: owncast
-      enableServiceLinks: false
-      nodeSelector:
-        kubernetes.io/os: linux
-      restartPolicy: Always
-      securityContext:
-        # runAsNonRoot: true
-        seccompProfile:
-          type: RuntimeDefault
-      terminationGracePeriodSeconds: 30
+    name: owncast
+    namespace: owncast
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app.kubernetes.io/name: owncast
+    template:
+        metadata:
+            labels:
+                app: web
+                app.kubernetes.io/name: owncast
+        spec:
+            containers:
+                - image: docker.io/owncast/owncast:latest
+                  imagePullPolicy: Always
+                  name: owncast
+                  ports:
+                    - containerPort: 8080
+                      name: http
+                      protocol: TCP
+                    - containerPort: 1935
+                      name: rtmp
+                      protocol: TCP
+                  securityContext:
+                    allowPrivilegeEscalation: false
+                    capabilities:
+                        drop:
+                            - ALL
+                    readOnlyRootFilesystem: true
+                  volumeMounts:
+                    - mountPath: /app/data
+                      name: appdata
+            volumes:
+                - name: appdata
+                  persistentVolumeClaim:
+                    claimName: owncast
+            enableServiceLinks: false
+            nodeSelector:
+                kubernetes.io/os: linux
+            restartPolicy: Always
+            securityContext:
+                # runAsNonRoot: true
+                seccompProfile:
+                    type: RuntimeDefault
+            terminationGracePeriodSeconds: 30
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: oauth2-proxy
+        app.kubernetes.io/name: oauth2-proxy
+    name: oauth2-proxy
+    namespace: owncast
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app.kubernetes.io/name: oauth2-proxy
+    template:
+        metadata:
+            labels:
+                app: oauth2-proxy
+                app.kubernetes.io/name: oauth2-proxy
+        spec:
+            containers:
+                - args:
+                    - --provider=github
+                    - --email-domain=*
+                    - --github-org=fermyon
+                    - --upstream=file:///dev/null
+                    - --http-address=0.0.0.0:4180
+                  # Register a new application
+                  # https://github.com/settings/applications/new
+                  env:
+                    - name: OAUTH2_PROXY_CLIENT_ID
+                      valueFrom:
+                        secretKeyRef:
+                            name: github-app
+                            key: clientID
+                    - name: OAUTH2_PROXY_CLIENT_SECRET
+                      valueFrom:
+                        secretKeyRef:
+                            name: github-app
+                            key: clientSecret
+                    # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'
+                    - name: OAUTH2_PROXY_COOKIE_SECRET
+                      valueFrom:
+                        secretKeyRef:
+                            name: github-app
+                            key: cookieSecret
+                  image: quay.io/oauth2-proxy/oauth2-proxy:latest
+                  imagePullPolicy: Always
+                  name: oauth2-proxy
+                  ports:
+                    - containerPort: 4180
+                      protocol: TCP
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
+---
+apiVersion: v1
+data:
+    cookieSecret: ENC[AES256_GCM,data:sZfxF5sg92pwOl+goL62li8cpPYHPPkqQbuxmBCfufs=,iv:VD6lCNtxx7tHfLf5tpaGwIZBmPNsRbWpSZeaUj8Ezdo=,tag:xEn0C5uMHBdA/2WLs+E4UQ==,type:str]
+    clientID: ENC[AES256_GCM,data:53TCyBmdcMhNZBFjV6RhYwT527nsjxyYqkPLUg==,iv:qhOoQ36mmcEKROGR0ZCyVYXP/4mEy9FcYjVA3JHU0V8=,tag:hSSa8Obul9lNlW4q2ez36Q==,type:str]
+    clientSecret: ENC[AES256_GCM,data:pBrH7tpT+35vwElXCHL3wXRMHjZ0/3dEFByFMkFh+CLSQakyYsHvI1KiMSh+ESLKszyqgKlLkM0=,iv:5v65twGWfWER3fngnxEVcu+loBeXdgKDQyoK+jzMJd0=,tag:36v225M5Mgl9o4UbkQ3j1g==,type:str]
+kind: Secret
+metadata:
+    name: github-app
+    namespace: owncast
+type: Opaque
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-07-31T15:34:50Z"
+    mac: ENC[AES256_GCM,data:jyZ2xEtovuZwDL3GSahbXEaIP6cT3cZ/9y4M225ahq8ipAemLI/fBVpHxpsaLOLp/tW39Sq/B6+BMRFI6u2TzzFnAOz9N4LbhNxlDaYg3Tv2FgIysJwKUy2XAigRCE5ac6KpRNFZ5iM22c3S33JJUefjsWnPsWsUalK0GP9n4n4=,iv:CLfN+DREyvgD0+SygQ8jNJYj9MPbezUtcd6BbW/Uyrc=,tag:IhhyXHArDAox7E0k6Xy9Fw==,type:str]
+    pgp:
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DZUuW+SnyHPYSAQdAguySSIy4v8MVZLbxAxtrs0o+WsSE1igF5kvOgg2/J1Yw
+            fWwdxE+bt3jbwcx6ww7Nvw68wSjwqsVj8zYCX0M7iR29qB/y9g48Vi0CIN2sXkAx
+            1GgBCQIQSjJTI6I7StTmMYwR6wowuACcnmASLAiJermeq4VL3jj0qrdPOPDQVyzK
+            axKSC/BWbuJiI/0DGO8SWsIDgs0HVhYEMnsG97ZjHiVz5spSFVsp9EAhFinzGaId
+            7eTGAyAu0LoAgg==
+            =Rl0A
+            -----END PGP MESSAGE-----
+          fp: 06D3DBFB5FB5468467BA56529035F3A43D5001EA
+        - created_at: "2024-07-31T15:34:50Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+Tj7GGlkPj7ARAApN9eFwcL0k56TBKhQ+621ACxCgLqDxBdqlr+ARopM2zo
+            uvp7uJA2OljkFvX8cigzcotBZz9iNKygnhNAEu87hb2NK0e5sXpPAKAVWnzBExFO
+            R4moo9IfX0gGHFjWicSTIMYP5SkWuVf4XxvZxDPQSEecaEmJnf6NtPWqvm8neZS+
+            hnVimjaOiiprRy1u6CJV+S64eEeADs8u31kv9gSJ6MJt+6Qi1Bd22IxWYOYKYPCe
+            73uSmgrpDk7DVo1kez5Q5oraSCt+v0t6YeiVH9RIiDUKIHhxevZqMEu4aU1Xc1zm
+            2E2KT+EHPGol6PXOL44lsh9EtJdG2gLlbKefycU1ttS9TfWOvArWraixWjNhmdcP
+            hO/LlUx7QMG1vUqMTHYSrjTbXohb1cZctY5XYUruWHQV0g07cxbIZoZzHwjx0nc6
+            9rfP92WFTOEr4o201hVr1hx8GPBaYygi3voFnpUJy/Q/Rt4ujz8HZpPsNzvhZu7K
+            bz9zCZdWhN/I6F0coAL6Gfs9YnxjGDQ0F1h6qaycWMhlaX+w8LmYqvOOqRpIjWN1
+            i0ki8Ub3/y6HrjXxsutFcvEy0QgTGm+aF5izQFGqcVs36/bUa5JbpzGSxPn3vpaf
+            XZ+XkN2bzb7SESWu0FQmZleDiUEcQm5S2+OUuF/rI+9d9EPjRYcYhWB6XkuCRw3U
+            aAEJAhD9pWsjDTO73nGUQQJHg03hGiXI/2qtTUserzK0UN/Ap6WV0q6l7N875Xlf
+            vjOo5yS7vJimudO2gaIleIn1+wlOgtSN88236hFsrbQtZArHsIWmQ4ikFDZjhEjX
+            AklnhW1+Nvh8
+            =9gg6
+            -----END PGP MESSAGE-----
+          fp: 11C53C196E0848476A6BC5918D65584EF3DDF91B
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
