@@ -194,7 +194,7 @@ spec:
                     service:
                         name: oauth2-proxy
                         port:
-                            number: 4180
+                            name: http
     tls:
         - hosts:
             - live.run.terrible.systems
@@ -519,6 +519,7 @@ spec:
                   ports:
                     - containerPort: 4180
                       protocol: TCP
+                      name: http
 sops:
     kms: []
     gcp_kms: []
