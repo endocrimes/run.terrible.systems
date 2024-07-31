@@ -53,6 +53,18 @@ spec:
     - live.run.terrible.systems
     secretName: live-tls-secret
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: owncast
+  namespace: owncast
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -93,8 +105,8 @@ spec:
             name: data
       volumes:
         - name: data
-          # todo: setup rook
-          emptyDir:
+          persistentVolumeClaim:
+            claimName: owncast
       enableServiceLinks: false
       nodeSelector:
         kubernetes.io/os: linux
