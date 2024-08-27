@@ -28,3 +28,5 @@ spec:
       defaultTags:
         - "tag:k8s-operator-talos"
     hostname: "k8s-talos"
+    apiServerProxyConfig:
+      mode: "true"
